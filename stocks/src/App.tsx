@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import React, { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [symbol, setSymbol] = useState('');
+  const [stockData, setStockData] = useState<any>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`/api/stocks/${symbol}`);
+      if (response.ok) {
+        const data = await response.json();
+        setStockData(data);
+      } else {
+        setStockData(null);
+      }
+    } catch (error) {
+      console.error('Error fetching stock data:', error);
+      setStockData(null);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <h1>Stock Market Website</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="symbol">Stock Symbol:</label>
+        <input
+          type="text"
+          id="symbol"
+          placeholder="Enter stock symbol"
+          value={symbol}
+          onChange={(e) => setSymbol(e.target.value)}
+          required
+        />
+        <button type="submit">Fetch Data</button>
+      </form>
+      <div id="stock-data">
+        {stockData ? (
+          <>
+            <p>Stock Name: {stockData.name}</p>
+            <p>Stock Price: ${stockData.price}</p>
+          </>
+        ) : (
+          <p>Stock not found.</p>
+        )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
