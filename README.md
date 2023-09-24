@@ -4,6 +4,6 @@ This model is built in tensor flow to predict the market over the course of the 
 
 In order to run this, you can clone the repo, then run
 
-cd stocks
-npm install
-npm run de
+1) cd stocks
+2) npm install
+3) npm run de
