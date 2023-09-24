@@ -1,5 +1,7 @@
 import React from 'react';
-import LineGraph from './LineGraph';
+import LineGraph from './components/LineGraph';
+import Button from "./components/Button";
+import './App.css';
 
 function App() {
   return (

@@ -10,12 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "boostrap": "^2.0.0",
+    "bootstrap": "5.3",
     "chart.js": "^4.4.0",
+    "csv-parser": "^3.0.0",
+    "expo-linear-gradient": "^12.5.0",
     "fs": "^0.0.1-security",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-router-dom": "^6.16.0",
+    "styled-components": "^6.0.8"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
