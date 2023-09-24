@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <h1>Stock Prediction</h1>
       <LineGraph />
+      <LineGraph />
     </div>
   );
 }
