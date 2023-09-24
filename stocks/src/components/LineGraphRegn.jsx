@@ -4,7 +4,7 @@ import { CategoryScale } from 'chart.js';
 import Chart from 'chart.js/auto';
 import Papa from 'papaparse';
 
-const LineGraphAppl = () => {
+const LineGraphRegn = () => {
   useEffect(() => {
     Chart.register(CategoryScale);
   }, []);
@@ -24,7 +24,7 @@ const LineGraphAppl = () => {
       // Extract x-values from the first column
       const xDataValues = parsedData.data.map((row) => parseFloat(row[Object.keys(row)[0]]));
       // Extract y-values from the second column
-      const yDataValues = parsedData.data.map((row) => parseFloat(row[Object.keys(row)[2]]));
+      const yDataValues = parsedData.data.map((row) => parseFloat(row[Object.keys(row)[36]]));
 
       return { x: xDataValues, y: yDataValues };
     } catch (error) {
@@ -39,7 +39,7 @@ const LineGraphAppl = () => {
       const estimatedDataValues = await fetchDataFromCSV('new_stonks.csv');
 
       // Add 2067 to the x-values from "new_stonks.csv"
-      const adjustedXValues = estimatedDataValues.x.map((x) => x + 2068);
+      const adjustedXValues = estimatedDataValues.x.map((x) => x + 2067);
 
       setXValues([...realDataValues.x, ...adjustedXValues]);
       setYRealData(realDataValues.y);
@@ -93,4 +93,4 @@ const LineGraphAppl = () => {
   );
 };
 
-export default LineGraphAppl;
+export default LineGraphRegn;

@@ -39,7 +39,7 @@ const LineGraph = () => {
       const estimatedDataValues = await fetchDataFromCSV('new_stonks.csv');
 
       // Add 2067 to the x-values from "new_stonks.csv"
-      const adjustedXValues = estimatedDataValues.x.map((x) => x + 2067);
+      const adjustedXValues = estimatedDataValues.x.map((x) => x + 2068);
 
       setXValues([...realDataValues.x, ...adjustedXValues]);
       setYRealData(realDataValues.y);
@@ -58,7 +58,7 @@ const LineGraph = () => {
   };
 
   const yReallyData= yRealData.slice(1767,2068);
-  const xAxis = xValues.slice(1767,2096);
+  const xAxis = xValues.slice(0,320);
 
   return (
     <div style={{ width: '66em', height: '44em' }}>
