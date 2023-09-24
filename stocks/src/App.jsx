@@ -4,6 +4,7 @@ import LineGraphAppl from './components/LineGraphAppl';
 import LineGraphMsft from './components/LineGraphMsft';
 import LineGraphGoog from './components/LineGraphGoog';
 import LineGraphAmzn from './components/LineGraphAmzn';
+import LineGraphNvda from './components/LineGraphNvda';
 import Button from "./components/Button";
 import './App.css';
 
@@ -20,6 +21,9 @@ function App() {
       <LineGraphGoog />  
       <h1>Amazon</h1>
       <LineGraphAmzn />
+      <h1>Nvidia</h1>
+      <LineGraphNvda />
+      
     </div>
   );
 }
