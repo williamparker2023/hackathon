@@ -58,7 +58,11 @@ const LineGraphTsla = () => {
   };
 
   const yReallyData= yRealData.slice(1767,2068);
-  const xAxis = xValues.slice(1767,2096);
+
+  let xAxis = [];
+  for (let i=-300; i<20; i++) {
+    xAxis.push(i);
+  };
 
   return (
     <div style={{ width: '66em', height: '44em' }}>
